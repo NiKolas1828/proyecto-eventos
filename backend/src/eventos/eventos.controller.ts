@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 import { EventosService } from './eventos.service';
 import { Evento } from './evento.entity';
 
@@ -15,4 +15,10 @@ export class EventosController {
   create(@Body() body: Partial<Evento>): Promise<Evento> {
     return this.eventosService.create(body);
   }
+
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.eventosService.delete(Number(id))
+  }
+
 }
