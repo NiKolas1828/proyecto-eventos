@@ -1,0 +1,62 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.subtitulo {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.form-card {
+  padding: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.evento-card {
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.evento-card:hover {
+  transform: translateY(-3px);
+}
+
+.descripcion {
+  color: #555;
+}
+
+.fechas {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #777;
+}
+
+.evento-header {
+  display: flex;
+  justify-content:space-between;
+}
