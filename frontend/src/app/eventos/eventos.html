@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h1 class="titulo">Gestión de Eventos</h1>
+
+  <!-- Formulario -->
+  <mat-card class="form-card">
+    <h2>Crear Evento</h2>
+
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="nuevoEvento.nombre">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input matInput [(ngModel)]="nuevoEvento.descripcion">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Inicio</mat-label>
+        <input matInput type="date" [(ngModel)]="nuevoEvento.fecha_inicio">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput type="date" [(ngModel)]="nuevoEvento.fecha_fin">
+      </mat-form-field>
+    </div>
+
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="crearEvento()">
+        Crear Evento
+      </button>
+    </div>
+  </mat-card>
+
+  <!-- Lista de Eventos Registrados -->
+<h2 class="subtitulo">Eventos Registrados</h2>
+
+<div class="cards-container">
+  <mat-card class="evento-card" *ngFor="let evento of eventos$ | async; trackBy: trackById">
+    <mat-card-header class="evento-header">
+      <h3>{{ evento.nombre }}</h3>
+      <button mat-icon-button color="warn" (click)="eliminarEvento(evento.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-header>
+
+    <p class="descripcion">{{ evento.descripcion }}</p>
+
+    <div class="fechas">
+      <span>📅 {{ evento.fecha_inicio | date:'mediumDate' }}</span>
+      <span>➜ {{ evento.fecha_fin | date:'mediumDate' }}</span>
+    </div>
+  </mat-card>
+</div>
+
+</div>
